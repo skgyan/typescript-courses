@@ -47,16 +47,16 @@ const humid3 = 79 as number; //✔️ is 79 a number? If so, this is safe!
 let date3 = "oops" as any as Date //! TypeScript thinks this is a Date now, but it's really a string
 date3.toISOString() //! what do we think will happen when we run this? 💥
 
-let date4 = "oops" as Date // can't do this, not adivasable but go for a top type and then back down like date3
+let date4 = "oops" as Date //! can't do this, not adivasable but go for a top type and then back down like date3
 
 //! Function arguments and return values
 
-function add(a: number, b: number) {
+function add(a: number, b: number): number {
   return a + b // strings? numbers? a mix?
 }
 
-const result = add(3, "4")
-const p = new Promise(result);
+const result = add(3, 4) //✔️
+const p = new Promise((result) => {});
 
 /**/
 
